@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>DevPortfolio - Proyectos</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                        "card-dark": "#1a2632", // Slightly lighter dark for cards
+                        "card-light": "#ffffff", // White for light mode cards
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-200">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+                <div class="layout-container flex justify-center w-full">
+                    <div class="w-full max-w-[1280px] px-6 md:px-12 py-4 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="flex items-center justify-center size-10 rounded-lg bg-primary/10 dark:bg-neutral-dark text-primary">
+                                <span class="material-symbols-outlined text-3xl">terminal</span>
+                            </div>
+                            <h2 class="text-xl font-bold tracking-tight">Aaron.dev</h2>
+                        </div>
+                        <nav class="hidden md:flex items-center gap-8">
+                            <a class="text-sm font-medium hover:text-primary transition-colors" data-i18n="nav-about"
+                                href="index.html">Sobre
+                                mí</a>
+                            <a class="text-sm font-medium text-primary font-bold" data-i18n="nav-projects"
+                                href="proyectos.html">Proyectos</a>
+                            <a class="text-sm font-medium hover:text-primary transition-colors" data-i18n="nav-skills"
+                                href="skilltecnicos.html">Habilidades</a>
+                            <a class="text-sm font-medium hover:text-primary transition-colors" data-i18n="nav-contact"
+                                href="contacto.html">Contacto</a>
+                        </nav>
+                        <div class="flex items-center gap-4">
+                            <button
+                                class="hidden sm:flex bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:opacity-90 transition-opacity px-5 py-2.5 rounded-lg text-sm font-bold items-center gap-2"
+                                data-i18n="button-cv">
+                                <span>Descargar CV</span>
+                            </button>
+                            <!-- Language Toggle Button (Desktop) -->
+                            <button
+                                class="lang-toggle-btn hidden md:flex items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-dark transition-colors text-sm font-bold">
+                                <span class="material-symbols-outlined text-[18px]">language</span>
+                                <span id="langToggleText-desktop" data-i18n="lang-toggle">English</span>
+                            </button>
+                            <!-- Mobile Menu Button -->
+                            <button class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined">menu</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 w-full px-4 md:px-10 lg:px-40 py-5 flex justify-center">
+                <div class="flex flex-col max-w-[960px] flex-1 w-full">
+                    <div class="py-8 md:py-12 border-b border-slate-200 dark:border-[#243647]">
+                        <h1 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-extrabold leading-tight tracking-tight mb-3"
+                            data-i18n="projects-title">
+                            Proyectos Destacados
+                        </h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-base md:text-lg max-w-2xl"
+                            data-i18n="projects-desc">
+                            Una colección de aplicaciones móviles diseñadas con enfoque en rendimiento, experiencia de
+                            usuario y código limpio. Desliza en las imágenes para ver más detalles.
+                        </p>
+                    </div>
+                    <div
+                        class="group flex flex-col md:flex-row gap-8 py-16 border-b border-slate-200 dark:border-[#243647]/50 items-start">
+                        <div class="w-full md:w-1/2 order-2 md:order-1 flex flex-col gap-6">
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="px-2 py-1 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold uppercase tracking-wider"
+                                        data-i18n="project-published">Publicada</span>
+                                    <span class="text-slate-400 dark:text-slate-500 text-sm font-medium">
+                                        Native Mobile</span>
+                                </div>
+                                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight"
+                                    data-i18n="project-suscrito-title">
+                                    App de Gestión: Suscrito</h2>
+                                <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed"
+                                    data-i18n="project-suscrito-desc">
+                                    Una aplicación nativa diseñada para gestionar y trackear tus suscripciones
+                                    mensuales. Ofrece recordatorios de pago, análisis de gastos y categorización
+                                    inteligente para mantener tus finanzas bajo control.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span
+                                        class="material-symbols-outlined text-[16px] mr-1.5 text-primary">phone_iphone</span>
+                                    Swift
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span
+                                        class="material-symbols-outlined text-[16px] mr-1.5 text-primary">database</span>
+                                    SwiftData
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-[16px] mr-1.5 text-primary">brush</span>
+                                    SwiftUI
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span
+                                        class="material-symbols-outlined text-[16px] mr-1.5 text-primary">android</span>
+                                    Kotlin
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span
+                                        class="material-symbols-outlined text-[16px] mr-1.5 text-primary">layers</span>
+                                    Jetpack Compose
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-[16px] mr-1.5 text-primary">sync</span>
+                                    Coroutines/Flow
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-[16px] mr-1.5 text-primary">dns</span>
+                                    ROOM / SwiftData
+                                </span>
+                            </div>
+                            <div class="pt-2 flex flex-wrap gap-4">
+                                <button
+                                    class="flex items-center justify-center gap-2 rounded-lg h-10 px-5 bg-primary hover:bg-blue-600 text-white text-sm font-bold transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40">
+                                    <span class="material-symbols-outlined text-[20px]">code</span>
+                                    <span data-i18n="view-github">Ver en GitHub</span>
+                                </button>
+                                <button
+                                    class="flex items-center justify-center gap-2 rounded-lg h-10 px-5 bg-transparent border border-slate-300 dark:border-slate-600 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-200 text-sm font-bold transition-all">
+                                    <span class="material-symbols-outlined text-[20px]">phone_iphone</span>
+                                    <span data-i18n="app-store">App Store</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 order-1 md:order-2 flex justify-center">
+                            <div
+                                class="relative w-[300px] aspect-[9/19] rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[8px] border-slate-800 ring-1 ring-slate-700 group/carousel">
+                                <div
+                                    class="absolute top-0 left-1/2 -translate-x-1/2 h-7 w-28 bg-black rounded-b-2xl z-20">
+                                </div>
+                                <div
+                                    class="flex h-full w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth">
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/suscrito/SplashScreen.png" alt="Suscrito Splash Screen"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/suscrito/onboarding_1.png" alt="Suscrito Onboarding 1"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/suscrito/onboadring_2.png" alt="Suscrito Onboarding 2"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/suscrito/dahsboard.png" alt="Suscrito Dashboard"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/suscrito/add_subsccription.png" alt="Suscrito Add Subscription"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute bottom-6 left-0 right-0 flex justify-center gap-1.5 pointer-events-none z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/80"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="group flex flex-col md:flex-row gap-8 py-16 border-b border-slate-200 dark:border-[#243647]/50 items-center justify-center">
+                        <div class="w-full md:w-1/2 order-1 md:order-1 flex justify-center">
+                            <div
+                                class="relative w-[300px] aspect-[9/19] rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[8px] border-slate-800 ring-1 ring-slate-700 group/carousel">
+                                <!-- Notch/Dynamic Island mockup -->
+                                <div
+                                    class="absolute top-0 left-1/2 -translate-x-1/2 h-7 w-28 bg-black rounded-b-2xl z-20">
+                                </div>
+
+                                <div
+                                    class="flex h-full w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth">
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/crolocha/splahsScreen.png" alt="Crolocha Splash Screen"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/crolocha/dashBoard.png" alt="Crolocha Dashboard"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/crolocha/detalles_del_producto.png"
+                                            alt="Crolocha Product Details" class="w-full h-full object-cover">
+                                    </div>
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/crolocha/carrito_compras.png" alt="Crolocha Shopping Cart"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+
+                                <!-- Carousel Navigation Indicators -->
+                                <div
+                                    class="absolute bottom-6 left-0 right-0 flex justify-center gap-1.5 pointer-events-none z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/80"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 order-2 md:order-2 flex flex-col gap-6">
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="px-2 py-1 rounded bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-xs font-bold uppercase tracking-wider"
+                                        data-i18n="project-in-progress">EN
+                                        PROCESO</span>
+                                    <span
+                                        class="text-slate-400 dark:text-slate-500 text-sm font-medium">Cross-Platform</span>
+                                </div>
+                                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight"
+                                    data-i18n="project-crolocha-title">
+                                    E-commerce: Crolocha</h2>
+                                <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed"
+                                    data-i18n="project-crolocha-desc">
+                                    Plataforma de comercio electrónico completa con navegación fluida y gestión de
+                                    carrito de compras. Conectada a una API robusta para manejo de inventario y pedidos
+                                    en tiempo real.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span
+                                        class="material-symbols-outlined text-[16px] mr-1.5 text-primary">smartphone</span>
+                                    React Native
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span
+                                        class="material-symbols-outlined text-[16px] mr-1.5 text-primary">layers</span>
+                                    Expo
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-[16px] mr-1.5 text-primary">route</span>
+                                    React Navigation
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-[16px] mr-1.5 text-primary">dns</span>
+                                    Node JS
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-[16px] mr-1.5 text-primary">code</span>
+                                    Python
+                                </span>
+                            </div>
+                            <div class="pt-2 flex flex-wrap gap-4">
+                                <button
+                                    class="flex items-center justify-center gap-2 rounded-lg h-10 px-5 bg-primary hover:bg-blue-600 text-white text-sm font-bold transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40">
+                                    <span class="material-symbols-outlined text-[20px]">code</span>
+                                    <span data-i18n="view-github">Ver en GitHub</span>
+                                </button>
+                                <button
+                                    class="flex items-center justify-center gap-2 rounded-lg h-10 px-5 bg-transparent border border-slate-300 dark:border-slate-600 hover:border-slate-800 dark:hover:border-slate-300 hover:text-slate-900 dark:hover:text-white text-slate-700 dark:text-slate-200 text-sm font-bold transition-all">
+                                    <span class="material-symbols-outlined text-[20px]">install_mobile</span>
+                                    <span data-i18n="stores">Tiendas</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group flex flex-col md:flex-row gap-8 py-16 items-center justify-center">
+                        <div class="w-full md:w-1/2 order-2 md:order-1 flex flex-col gap-6">
+                            <div class="flex flex-col gap-3">
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="px-2 py-1 rounded bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-xs font-bold uppercase tracking-wider"
+                                        data-i18n="project-in-progress">En
+                                        desarrollo</span>
+                                    <span class="text-slate-400 dark:text-slate-500 text-sm font-medium">Native
+                                        Mobile</span>
+                                </div>
+                                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight"
+                                    data-i18n="project-codebiz-title">
+                                    Gestor Comercial: CodeBiz</h2>
+                                <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed"
+                                    data-i18n="project-codebiz-desc">
+                                    Una solución integral para la gestión de productos y ventas en movilidad. Escaneo de
+                                    códigos de barras, gestión de inventario en tiempo real y paneles de control
+                                    intuitivos para administradores y empleados.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span
+                                        class="material-symbols-outlined text-[16px] mr-1.5 text-primary">android</span>
+                                    Kotlin
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span
+                                        class="material-symbols-outlined text-[16px] mr-1.5 text-primary">layers</span>
+                                    Jetpack Compose
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-[16px] mr-1.5 text-primary">sync</span>
+                                    Coroutines/Flow
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-[16px] mr-1.5 text-primary">dns</span>
+                                    API Node JS
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span
+                                        class="material-symbols-outlined text-[16px] mr-1.5 text-primary">phone_iphone</span>
+                                    Swift
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span class="material-symbols-outlined text-[16px] mr-1.5 text-primary">brush</span>
+                                    SwiftUI
+                                </span>
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1a2632] border border-slate-200 dark:border-[#243647] text-xs font-medium text-slate-700 dark:text-slate-300">
+                                    <span
+                                        class="material-symbols-outlined text-[16px] mr-1.5 text-primary">architecture</span>
+                                    MVVM
+                                </span>
+                            </div>
+                            <div class="pt-2 flex flex-wrap gap-4">
+                                <button
+                                    class="flex items-center justify-center gap-2 rounded-lg h-10 px-5 bg-primary hover:bg-blue-600 text-white text-sm font-bold transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40">
+                                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                    <span data-i18n="view-progress">Avance</span>
+                                </button>
+                                <button
+                                    class="flex items-center justify-center gap-2 rounded-lg h-10 px-5 bg-transparent border border-slate-300 dark:border-slate-600 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-200 text-sm font-bold transition-all">
+                                    <span class="material-symbols-outlined text-[20px]">phone_iphone</span>
+                                    <span data-i18n="app-store">App Store</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 order-1 md:order-2 flex justify-center">
+                            <div
+                                class="relative w-[300px] aspect-[9/19] rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[8px] border-slate-800 ring-1 ring-slate-700 group/carousel">
+                                <!-- Notch/Dynamic Island mockup -->
+                                <div
+                                    class="absolute top-0 left-1/2 -translate-x-1/2 h-7 w-28 bg-black rounded-b-2xl z-20">
+                                </div>
+
+                                <div
+                                    class="flex h-full w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth">
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/codeBiz/splashScreen.png" alt="CodeBiz Splash Screen"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/codeBiz/Login.png" alt="CodeBiz Login"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/codeBiz/dahsboard.png" alt="CodeBiz Dashboard"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/codeBiz/escanear.png" alt="CodeBiz Scan"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div
+                                        class="min-w-full h-full snap-center bg-slate-900 border-r border-slate-800/50">
+                                        <img src="images/codeBiz/detail_product.png" alt="CodeBiz Product Details"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+
+                                <!-- Carousel Navigation Indicators -->
+                                <div
+                                    class="absolute bottom-6 left-0 right-0 flex justify-center gap-1.5 pointer-events-none z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/80"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer
+                class="w-full border-t border-slate-200 dark:border-[#243647] bg-background-light dark:bg-background-dark py-10">
+                <div class="px-4 md:px-10 lg:px-40 flex justify-center">
+                    <div class="flex flex-col md:flex-row justify-between items-center w-full max-w-[960px] gap-6">
+                        <div class="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-2xl">terminal</span>
+                            <span class="font-bold text-lg">DevPortfolio</span>
+                        </div>
+                        <div class="flex gap-6">
+                            <a class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors"
+                                href="https://github.com/MAHEDO">
+                                <span class="sr-only">GitHub</span>
+                                <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path clip-rule="evenodd"
+                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <a class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors"
+                                href="https://www.linkedin.com/in/michelt-aarón-hernández-dominguez-895a53103">
+                                <span class="sr-only">LinkedIn</span>
+                                <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path clip-rule="evenodd"
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="text-sm text-slate-500 dark:text-slate-500">
+                            © 2024 DevPortfolio. Todos los derechos reservados.
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[100] bg-background-light dark:bg-background-dark transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto">
+        <div class="grid grid-cols-1 h-full p-6">
+            <div class="flex items-center justify-between mb-12">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="flex items-center justify-center size-10 rounded-lg bg-primary/10 dark:bg-neutral-dark text-primary">
+                        <span class="material-symbols-outlined text-3xl">terminal</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight">Aaron.dev</h2>
+                </div>
+                <button id="mobile-menu-close" class="p-2 text-gray-600 dark:text-gray-300">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-6">
+                <a class="text-2xl font-bold hover:text-primary transition-colors" data-i18n="nav-about"
+                    href="index.html">About</a>
+                <a class="text-2xl font-bold hover:text-primary transition-colors" data-i18n="nav-projects"
+                    href="proyectos.html">Projects</a>
+                <a class="text-2xl font-bold hover:text-primary transition-colors" data-i18n="nav-skills"
+                    href="skilltecnicos.html">Skills</a>
+                <a class="text-2xl font-bold hover:text-primary transition-colors" data-i18n="nav-contact"
+                    href="contacto.html">Contact</a>
+            </nav>
+            <div class="mt-auto flex flex-col gap-4 py-8">
+                <button
+                    class="lang-toggle-btn w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gray-100 dark:bg-neutral-dark font-bold text-lg">
+                    <span class="material-symbols-outlined">language</span>
+                    <span id="langToggleText" data-i18n="lang-toggle">English</span>
+                </button>
+                <button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg" data-i18n="button-hire">
+                    Hire Me
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/chat.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

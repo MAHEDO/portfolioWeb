@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Habilidades Técnicas - DevPortfolio</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                        "card-dark": "#1a2632",
+                        "card-border": "#344d65",
+                        "text-secondary": "#93adc8",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden min-h-screen flex flex-col">
+    <header
+        class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+        <div class="layout-container flex justify-center w-full">
+            <div class="w-full max-w-[1280px] px-6 md:px-12 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="flex items-center justify-center size-10 rounded-lg bg-primary/10 dark:bg-neutral-dark text-primary">
+                        <span class="material-symbols-outlined text-3xl">terminal</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight">Aaron.dev</h2>
+                </div>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-medium hover:text-primary transition-colors" data-i18n="nav-about"
+                        href="index.html">Sobre mí</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" data-i18n="nav-projects"
+                        href="proyectos.html">Proyectos</a>
+                    <a class="text-sm font-medium text-primary font-bold" data-i18n="nav-skills"
+                        href="skilltecnicos.html">Habilidades</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" data-i18n="nav-contact"
+                        href="contacto.html">Contacto</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <button
+                        class="hidden sm:flex bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:opacity-90 transition-opacity px-5 py-2.5 rounded-lg text-sm font-bold items-center gap-2"
+                        data-i18n="button-cv">
+                        <span>Descargar CV</span>
+                    </button>
+                    <!-- Language Toggle Button (Desktop) -->
+                    <button
+                        class="lang-toggle-btn hidden md:flex items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-dark transition-colors text-sm font-bold">
+                        <span class="material-symbols-outlined text-[18px]">language</span>
+                        <span id="langToggleText-desktop" data-i18n="lang-toggle">English</span>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex-grow layout-container flex flex-col items-center">
+        <div class="w-full max-w-[1080px] px-4 md:px-10 py-10 flex flex-col gap-8">
+            <div class="flex flex-col gap-4 text-center md:text-left">
+                <h1 class="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white"
+                    data-i18n="skills-title">Habilidades
+                    Técnicas</h1>
+                <p class="text-slate-500 dark:text-text-secondary text-lg max-w-2xl leading-relaxed"
+                    data-i18n="skills-desc">
+                    Un conjunto de herramientas completo para crear experiencias móviles nativas y multiplataforma de
+                    alto rendimiento, respaldado por una sólida comprensión del backend y el diseño.
+                </p>
+            </div>
+            <div class="w-full overflow-x-auto pb-2">
+                <div class="flex gap-3 min-w-max">
+                    <button
+                        class="filter-btn flex h-10 items-center justify-center gap-x-2 rounded-full bg-primary px-6 transition-transform hover:scale-105 active:scale-95"
+                        data-filter="all">
+                        <span class="text-white text-sm font-bold" data-i18n="filter-all">Todas</span>
+                    </button>
+                    <button
+                        class="filter-btn flex h-10 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-card-dark border border-transparent dark:border-card-border hover:border-primary px-6 transition-colors group"
+                        data-filter="mobile">
+                        <span
+                            class="material-symbols-outlined text-[18px] text-slate-500 dark:text-text-secondary group-hover:text-primary">smartphone</span>
+                        <span class="text-slate-700 dark:text-white text-sm font-medium"
+                            data-i18n="filter-mobile">Mobile</span>
+                    </button>
+                    <button
+                        class="filter-btn flex h-10 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-card-dark border border-transparent dark:border-card-border hover:border-primary px-6 transition-colors group"
+                        data-filter="web">
+                        <span
+                            class="material-symbols-outlined text-[18px] text-slate-500 dark:text-text-secondary group-hover:text-primary">language</span>
+                        <span class="text-slate-700 dark:text-white text-sm font-medium"
+                            data-i18n="filter-web">Web</span>
+                    </button>
+                    <button
+                        class="filter-btn flex h-10 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-card-dark border border-transparent dark:border-card-border hover:border-primary px-6 transition-colors group"
+                        data-filter="backend">
+                        <span
+                            class="material-symbols-outlined text-[18px] text-slate-500 dark:text-text-secondary group-hover:text-primary">dns</span>
+                        <span class="text-slate-700 dark:text-white text-sm font-medium"
+                            data-i18n="filter-backend">Backend</span>
+                    </button>
+                    <button
+                        class="filter-btn flex h-10 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-card-dark border border-transparent dark:border-card-border hover:border-primary px-6 transition-colors group"
+                        data-filter="devops">
+                        <span
+                            class="material-symbols-outlined text-[18px] text-slate-500 dark:text-text-secondary group-hover:text-primary">rocket_launch</span>
+                        <span class="text-slate-700 dark:text-white text-sm font-medium"
+                            data-i18n="filter-devops">DevOps</span>
+                    </button>
+                    <button
+                        class="filter-btn flex h-10 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-card-dark border border-transparent dark:border-card-border hover:border-primary px-6 transition-colors group"
+                        data-filter="design">
+                        <span
+                            class="material-symbols-outlined text-[18px] text-slate-500 dark:text-text-secondary group-hover:text-primary">palette</span>
+                        <span class="text-slate-700 dark:text-white text-sm font-medium"
+                            data-i18n="filter-design">Diseño</span>
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="skills-grid">
+
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="mobile">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat"
+                                data-alt="Swift programming language logo icon"
+                                style='background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">3
+                            Años</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Swift</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">Desarrollo iOS Nativo</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="mobile">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat"
+                                data-alt="Kotlin programming language logo icon"
+                                style='background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">3
+                            Años</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Kotlin</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">Desarrollo Android Nativo</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="mobile">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-cyan-50 dark:bg-cyan-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat"
+                                data-alt="React Native logo icon"
+                                style='background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">2
+                            Años</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">React Native</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">Framework JavaScript</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="web">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat" data-alt="HTML5 logo icon"
+                                style='background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">Avanzado</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">HTML 5</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">markup language</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="web">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-yellow-50 dark:bg-yellow-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat" data-alt="JavaScript logo icon"
+                                style='background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">Avanzado</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">JavaScript</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">multiparadigm language</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="backend">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-yellow-50 dark:bg-yellow-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat"
+                                data-alt="Firebase platform logo icon"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCx0TNTjpzUbmkf7kHGQqiaPGUiXcSWwJnGwoF0gWQSv87nXeuEV5rO9tfNmaaKyeETNgIgk0T217mhUtqHRzQgGAlL8AdG_3H0GIRIgegotACG0Q0D0xeQVWQD0dlU0TDtDVL_NL8f1ucdnG25r3gByNS62BEIBoJOp-7JWUpgFXYqTfzI0-17zTKwAAj4YFweJpw8TkEP3KY1hv7F5q0P7DBBUztRmWsjFJgc4-yPcPW-FfZFGWrxixvhlmrFSoKZoUS8DIvz6pnD");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">Avanzado</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Firebase</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">Backend as a Service</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="backend">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat"
+                                data-alt="Node.js runtime logo icon"
+                                style='background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">Intermedio</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Node.js</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">Backend Runtime</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 60%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="backend">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat"
+                                data-alt="Python programming language logo icon"
+                                style='background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">2
+                            Años</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Python</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">Desarrollo software</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="devops">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat"
+                                data-alt="Git version control logo icon"
+                                style='background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">Experto</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Git</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">Control de Versiones</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="devops">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-yellow-50 dark:bg-yellow-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat" data-alt="Power BI logo icon"
+                                style='background-image: url("https://cdn.simpleicons.org/powerbi/F2C811");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">2
+                            Años</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Power BI</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">Creacion de Paneles Interactivos</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="devops">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat" data-alt="Tableau logo icon"
+                                style='background-image: url("https://cdn.simpleicons.org/tableau/331392");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">2
+                            Años</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Tableau</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">Creacion de Paneles Interactivos</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="design">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-pink-50 dark:bg-pink-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat"
+                                data-alt="Figma design tool logo icon"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1D1kiqQZHbdO9xH8yh-s59oBsXz-IR6gfBIgo4ZrumeSgA-wV8gH_yciwrgeHodAP0pGBD5F1-VM4HhCC8yFhvuXDuy8cONz8SMhOehsl-cKqF3z2DbAoyvKKPRFCJGREf6xJqxzUet77oGcOPoX9oPv3vDezG8uWhP3SyWBrATKbGmfu0GxMIo6hTs8-JSJydUgFVDMTw8-YapIqPTy649mKw7Ai89zNBpQc8Ag2mqL34yS_oYUPun0E36It51U04BEb5ml4ebJR");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">Prototipado</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Figma</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">Diseño UI/UX</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="design">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat" data-alt="CSS3 logo icon"
+                                style='background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">Avanzado</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">CSS</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">Cascading Style Sheets</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="design">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat" data-alt="Bootstrap logo icon"
+                                style='background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">Avanzado</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Bootstrap</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">CSS framework</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
+                    data-category="design">
+                    <div class="flex items-start justify-between">
+                        <div
+                            class="h-12 w-12 rounded-lg bg-cyan-50 dark:bg-cyan-900/20 flex items-center justify-center p-2">
+                            <div class="w-full h-full bg-contain bg-center bg-no-repeat"
+                                data-alt="Tailwind CSS logo icon"
+                                style='background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg");'>
+                            </div>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded bg-slate-100 dark:bg-background-dark text-xs font-semibold text-slate-600 dark:text-text-secondary">Avanzado</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">tailwind</h3>
+                        <p class="text-sm text-slate-500 dark:text-text-secondary">CSS framework</p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-background-dark rounded-full h-2 mt-2 overflow-hidden">
+                        <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-6 w-full pt-4">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2"
+                    data-i18n="certifications-title">
+                    <span class="material-symbols-outlined text-primary text-3xl">workspace_premium</span>
+                    Certificaciones y Cursos
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div
+                        class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark hover:border-primary/50 transition-colors">
+                        <div
+                            class="h-12 w-12 shrink-0 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">verified</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="font-bold text-slate-900 dark:text-white">Google Associate Android Developer</h3>
+                            <p class="text-sm text-slate-500 dark:text-text-secondary">Google Developers • 2023</p>
+                        </div>
+                        <a class="text-primary hover:text-blue-600 text-sm font-medium whitespace-nowrap" href="#"
+                            data-i18n="view-credential">Ver
+                            Credencial</a>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark hover:border-primary/50 transition-colors">
+                        <div
+                            class="h-12 w-12 shrink-0 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center text-cyan-600">
+                            <span class="material-symbols-outlined">school</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="font-bold text-slate-900 dark:text-white">Meta React Native Specialization</h3>
+                            <p class="text-sm text-slate-500 dark:text-text-secondary">Coursera • 2022</p>
+                        </div>
+                        <a class="text-primary hover:text-blue-600 text-sm font-medium whitespace-nowrap" href="#"
+                            data-i18n="view-credential">Ver
+                            Credencial</a>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark hover:border-primary/50 transition-colors">
+                        <div
+                            class="h-12 w-12 shrink-0 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600">
+                            <span class="material-symbols-outlined">code</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="font-bold text-slate-900 dark:text-white">iOS App Development with Swift</h3>
+                            <p class="text-sm text-slate-500 dark:text-text-secondary">Udemy • 2021</p>
+                        </div>
+                        <a class="text-primary hover:text-blue-600 text-sm font-medium whitespace-nowrap" href="#">Ver
+                            Credencial</a>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-card-border bg-white dark:bg-card-dark hover:border-primary/50 transition-colors">
+                        <div
+                            class="h-12 w-12 shrink-0 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600">
+                            <span class="material-symbols-outlined">lightbulb</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="font-bold text-slate-900 dark:text-white">UX Design Professional Certificate</h3>
+                            <p class="text-sm text-slate-500 dark:text-text-secondary">Google • 2021</p>
+                        </div>
+                        <a class="text-primary hover:text-blue-600 text-sm font-medium whitespace-nowrap" href="#">Ver
+                            Credencial</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-6">
+                <button
+                    class="flex items-center gap-2 text-primary hover:text-white border border-primary hover:bg-primary px-6 py-3 rounded-lg font-bold text-sm transition-all">
+                    <a class="text-primary hover:text-blue-600 text-sm font-medium whitespace-nowrap"
+                        href="proyectos.html">
+                        <span data-i18n="tech-projects-btn">Ver proyectos con estas tecnologías</span>
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span></a>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const skillCards = document.querySelectorAll('.skill-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-primary');
+                        btn.classList.add('bg-slate-200', 'dark:bg-card-dark');
+                        const text = btn.querySelector('span:last-child');
+                        if (text) text.classList.remove('text-white');
+                        if (text) text.classList.add('text-slate-700', 'dark:text-white');
+
+                        // Icon handling if present
+                        const icon = btn.querySelector('.material-symbols-outlined');
+                        if (icon) icon.classList.remove('text-white');
+                        if (icon) icon.classList.add('text-slate-500', 'dark:text-text-secondary');
+                    });
+
+                    // Add active class to clicked button
+                    button.classList.remove('bg-slate-200', 'dark:bg-card-dark');
+                    button.classList.add('bg-primary');
+
+                    const text = button.querySelector('span:last-child');
+                    if (text) text.classList.remove('text-slate-700', 'dark:text-white');
+                    if (text) text.classList.add('text-white');
+
+                    // Icon handling if present
+                    const icon = button.querySelector('.material-symbols-outlined');
+                    if (icon) icon.classList.remove('text-slate-500', 'dark:text-text-secondary');
+                    if (icon) icon.classList.add('text-white');
+
+                    const filterValue = button.getAttribute('data-filter');
+
+                    skillCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.classList.remove('hidden');
+                            // Optional: Add animation
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        } else {
+                            card.classList.add('hidden');
+                            // Optional: Add animation
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.95)';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[100] bg-background-light dark:bg-background-dark transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto">
+        <div class="grid grid-cols-1 h-full p-6">
+            <div class="flex items-center justify-between mb-12">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="flex items-center justify-center size-10 rounded-lg bg-primary/10 dark:bg-neutral-dark text-primary">
+                        <span class="material-symbols-outlined text-3xl">terminal</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight">Aaron.dev</h2>
+                </div>
+                <button id="mobile-menu-close" class="p-2 text-gray-600 dark:text-gray-300">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-6">
+                <a class="text-2xl font-bold hover:text-primary transition-colors" data-i18n="nav-about"
+                    href="index.html">About</a>
+                <a class="text-2xl font-bold hover:text-primary transition-colors" data-i18n="nav-projects"
+                    href="proyectos.html">Projects</a>
+                <a class="text-2xl font-bold hover:text-primary transition-colors" data-i18n="nav-skills"
+                    href="skilltecnicos.html">Skills</a>
+                <a class="text-2xl font-bold hover:text-primary transition-colors" data-i18n="nav-contact"
+                    href="contacto.html">Contact</a>
+            </nav>
+            <div class="mt-auto flex flex-col gap-4 py-8">
+                <button
+                    class="lang-toggle-btn w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gray-100 dark:bg-neutral-dark font-bold text-lg">
+                    <span class="material-symbols-outlined">language</span>
+                    <span id="langToggleText" data-i18n="lang-toggle">English</span>
+                </button>
+                <button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg" data-i18n="button-hire">
+                    Hire Me
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/chat.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
