@@ -267,3 +267,92 @@ body {
 .toast-notification .close-message:hover {
     background: rgba(255, 255, 255, 0.3);
 }
+
+/* Browser Frame Mockup */
+.browser-frame {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid #334155;
+}
+
+.browser-frame-header {
+    background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #475569;
+}
+
+.browser-frame-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.browser-frame-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.browser-frame-dots span:nth-child(1) {
+    background: #ef4444;
+}
+
+.browser-frame-dots span:nth-child(2) {
+    background: #eab308;
+}
+
+.browser-frame-dots span:nth-child(3) {
+    background: #22c55e;
+}
+
+.browser-frame-url {
+    flex: 1;
+    background: #0f172a;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.browser-frame-url .lock-icon {
+    color: #22c55e;
+    font-size: 14px;
+}
+
+.browser-frame-content {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #0f172a;
+}
+
+.browser-frame-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Tableau Container */
+.tableau-container {
+    width: 100%;
+    min-height: 500px;
+}
+
+@media (max-width: 768px) {
+    .browser-frame-content {
+        aspect-ratio: 4/3;
+    }
+
+    .tableau-container {
+        min-height: 400px;
+    }
+}
