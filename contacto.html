@@ -196,13 +196,20 @@
                 <!-- Right Column: Form -->
                 <div
                     class="lg:col-span-7 bg-white dark:bg-[#111a22] md:dark:bg-transparent rounded-xl md:rounded-none p-6 md:p-0 shadow-sm md:shadow-none border border-slate-200 dark:border-slate-800 md:border-none">
-                    <form action="#" class="flex flex-col gap-6" method="POST">
+                    <form id="contact-form" class="flex flex-col gap-6">
+                        <!-- Web3Forms Access Key - Replace with your actual key -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <!-- Honeypot for spam protection -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        <!-- Subject line for email -->
+                        <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio">
+                        <input type="hidden" name="from_name" value="Portfolio Contact Form">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <label class="flex flex-col flex-1">
                                 <p class="text-slate-900 dark:text-white text-sm font-medium leading-normal pb-2"
                                     data-i18n="label-name">Name
                                 </p>
-                                <input
+                                <input name="name"
                                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-[#344d65] bg-slate-50 dark:bg-[#1a2632] focus:border-primary h-12 placeholder:text-slate-400 dark:placeholder:text-[#93adc8] px-4 text-base font-normal leading-normal transition-all"
                                     placeholder="Your Name" required="" data-i18n="placeholder-name" />
                             </label>
@@ -210,7 +217,7 @@
                                 <p class="text-slate-900 dark:text-white text-sm font-medium leading-normal pb-2"
                                     data-i18n="label-email">Email
                                 </p>
-                                <input
+                                <input name="email"
                                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-[#344d65] bg-slate-50 dark:bg-[#1a2632] focus:border-primary h-12 placeholder:text-slate-400 dark:placeholder:text-[#93adc8] px-4 text-base font-normal leading-normal transition-all"
                                     placeholder="your.email@example.com" required="" type="email"
                                     data-i18n="placeholder-email" />
@@ -223,7 +230,7 @@
                             <div class="relative">
                                 <span
                                     class="absolute right-4 top-3 text-slate-400 dark:text-[#93adc8] material-symbols-outlined pointer-events-none">expand_more</span>
-                                <select
+                                <select name="inquiry_type"
                                     class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-[#344d65] bg-slate-50 dark:bg-[#1a2632] focus:border-primary h-12 px-4 text-base font-normal leading-normal appearance-none transition-all cursor-pointer">
                                     <option data-i18n="option-project">Project Inquiry</option>
                                     <option data-i18n="option-job">Job Opportunity</option>
@@ -236,19 +243,23 @@
                             <p class="text-slate-900 dark:text-white text-sm font-medium leading-normal pb-2"
                                 data-i18n="label-message">Message
                             </p>
-                            <textarea
+                            <textarea name="message"
                                 class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-[#344d65] bg-slate-50 dark:bg-[#1a2632] focus:border-primary min-h-[160px] placeholder:text-slate-400 dark:placeholder:text-[#93adc8] p-4 text-base font-normal leading-normal transition-all"
                                 placeholder="Tell me about your project..." required=""
                                 data-i18n="placeholder-message"></textarea>
                         </label>
                         <div class="pt-2">
-                            <button
-                                class="group relative flex w-full md:w-auto min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg border-0 bg-primary px-8 py-3.5 text-base font-bold text-white shadow-lg transition-all duration-300 hover:bg-blue-600 hover:shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-[#111921]"
-                                type="button">
-                                <span class="relative z-10 flex items-center gap-2">
+                            <button id="submit-btn"
+                                class="group relative flex w-full md:w-auto min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg border-0 bg-primary px-8 py-3.5 text-base font-bold text-white shadow-lg transition-all duration-300 hover:bg-blue-600 hover:shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-[#111921] disabled:opacity-75 disabled:cursor-not-allowed"
+                                type="submit">
+                                <span id="btn-text" class="relative z-10 flex items-center gap-2">
                                     <span data-i18n="button-send">Send Message</span>
                                     <span
                                         class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">send</span>
+                                </span>
+                                <span id="btn-spinner" class="hidden relative z-10 flex items-center gap-2">
+                                    <span class="loading-spinner"></span>
+                                    <span data-i18n="button-sending">Sending...</span>
                                 </span>
                             </button>
                         </div>
@@ -307,9 +318,34 @@
         </div>
     </div>
 
+    <!-- Toast Notifications -->
+    <div id="success-message" class="toast-notification toast-success hidden translate-x-full">
+        <span class="material-symbols-outlined text-2xl">check_circle</span>
+        <div>
+            <p class="font-bold" data-i18n="toast-success-title">Message Sent!</p>
+            <p class="text-sm opacity-90" data-i18n="toast-success-desc">Thank you for reaching out. I'll get back to
+                you soon.</p>
+        </div>
+        <button class="close-message">
+            <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+    </div>
+    <div id="error-message" class="toast-notification toast-error hidden translate-x-full">
+        <span class="material-symbols-outlined text-2xl">error</span>
+        <div>
+            <p class="font-bold" data-i18n="toast-error-title">Oops!</p>
+            <p class="text-sm opacity-90 error-text" data-i18n="toast-error-desc">Something went wrong. Please try
+                again.</p>
+        </div>
+        <button class="close-message">
+            <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+    </div>
+
     <script src="js/chat.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 
 </html>

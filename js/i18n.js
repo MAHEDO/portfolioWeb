@@ -70,6 +70,11 @@ const translations = {
         "option-mentorship": "Mentorship",
         "option-other": "Other",
         "button-send": "Send Message",
+        "button-sending": "Sending...",
+        "toast-success-title": "Message Sent!",
+        "toast-success-desc": "Thank you for reaching out. I'll get back to you soon.",
+        "toast-error-title": "Oops!",
+        "toast-error-desc": "Something went wrong. Please try again.",
         "privacy-policy": "Privacy Policy",
         "terms": "Terms of Service"
     },
@@ -92,7 +97,7 @@ const translations = {
         // Proyectos
         "projects-title": "Proyectos Destacados",
         "projects-desc": "Una colección de aplicaciones móviles y sitios web diseñadas con enfoque en rendimiento, experiencia de usuario y código limpio. Desliza en las imágenes para ver más detalles.",
-        "project-published": "Publicada", 
+        "project-published": "Publicada",
         "project-in-progress": "En Proceso",
         "view-github": "Ver en GitHub",
         "app-store": "App Store",
@@ -144,6 +149,11 @@ const translations = {
         "option-mentorship": "Mentoría",
         "option-other": "Otro",
         "button-send": "Enviar Mensaje",
+        "button-sending": "Enviando...",
+        "toast-success-title": "¡Mensaje Enviado!",
+        "toast-success-desc": "Gracias por contactarme. Te responderé pronto.",
+        "toast-error-title": "¡Ups!",
+        "toast-error-desc": "Algo salió mal. Por favor intenta de nuevo.",
         "privacy-policy": "Política de Privacidad",
         "terms": "Términos de Servicio"
     }
@@ -168,7 +178,7 @@ class I18n {
             const key = el.getAttribute('data-i18n');
             if (translations[this.lang][key]) {
                 const content = translations[this.lang][key];
-                
+
                 // Handle different types of elements
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                     if (el.hasAttribute('placeholder')) {
@@ -200,7 +210,7 @@ window.i18n = new I18n();
 document.addEventListener('DOMContentLoaded', () => {
     // Re-apply language on load to ensure all dynamic content is translated
     window.i18n.applyLanguage();
-    
+
     // Bind toggle buttons
     const toggleBtns = document.querySelectorAll('.lang-toggle-btn');
     toggleBtns.forEach(btn => {
